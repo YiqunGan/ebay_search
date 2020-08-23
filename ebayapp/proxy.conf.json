@@ -1,0 +1,8 @@
+{
+  "/api/*": {
+    "target": "https://ebaybackend-yiqun.wl.r.appspot.com",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

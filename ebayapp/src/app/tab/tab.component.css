@@ -1,0 +1,14 @@
+td{
+  padding: 10px;
+
+}
+.table {
+  border-collapse: separate;
+  border-spacing:0 20px;
+}
+.check{
+  color: green;
+}
+.cross{
+  color:red;
+}

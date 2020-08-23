@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="form-group col-md-3">
+    <img src="../../assets/image/ebayHome.png" style="width:90%;height:auto">
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 m-auto">
+        <form (ngSubmit)="onSubmit(ebayForm)" #ebayForm="ngForm" [formGroup]="form">
+            <div class="form-group row">
+              <label for="keyword" class="col-md-2 control-label">Key words<span style="color:red">*</span></label>
+              <input type="text" class="col-md-10 form-control" id="keyword" formControlName="keyword" name="keyword" placeholder="Enter keywords" required>
+              <p *ngIf="invalidKeyword()"  [ngClass]="{'has-error': invalidKeyword()}" style="text-indent:9.0em" id="keyword_error" class="help-block">Please enter a keyword.</p>
+            </div>
+
+            <div class="form-group row" >
+              <label class="col-md-2 control-label price">Price range</label>
+              <input type="number" class="form-control col-md-4" [ngClass]="{'has-error': invalidMinPrice()}" [(ngModel)]="ebaysearch.minprice" name="minprice" id="minprice" min=0 formControlName="minprice" placeholder="Min Price">
+
+              <input type="number" class="form-control col-md-4 ml-auto" [ngClass]="{'has-error': invalidMaxPrice()}" name="maxprice" id="maxprice" min={{ebaysearch.minprice}} formControlName="maxprice" placeholder="Max Price">
+              <!-- <div>  {{ form.valid ? '👍' : '👎' }} </div> -->
+              <p *ngIf="invalidMinPrice() || invalidMaxPrice()" [ngClass]="{'has-error': invalidMinPrice()||invalidMaxPrice()}"  style="text-indent:9.0em" id="minprice_error" class="help-block">Please use appropriate values for minPrice/maxPrice</p>
+
+
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2 control-label">Condition: </label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" formControlName="new" id="inlineCheckbox1">
+                <label class="form-check-label" for="inlineCheckbox1">New</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" formControlName=used id="inlineCheckbox2" >
+                <label class="form-check-label" for="inlineCheckbox2">Used</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" formControlName="verygood" id="inlineCheckbox3" >
+                <label class="form-check-label" for="inlineCheckbox3">Very Good</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" formControlName="good" id="inlineCheckbox4" >
+                <label class="form-check-label" for="inlineCheckbox4">Good</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" formControlName="acceptable" id="inlineCheckbox5">
+                <label class="form-check-label" for="inlineCheckbox5">Acceptable</label>
+              </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Seller</label>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" formControlName="return" >
+                  <label class="form-check-label" for="return">Return Accepted</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-2 control-label">Shipping</label>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" formControlName="free" id="free">
+                  <label class="form-check-label" for="free">Free</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" formControlName="expedited" id="expedited">
+                  <label class="form-check-label" for="expedited">Expedited</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="sort_order" class="col-md-2 control-label">Sort Order</label>
+                <select class="col-md-10 custom-select" formControlName="sortby" id="sort_order">
+                  <option selected value="1">Best Match</option>
+                  <option value="2">Price: highest first</option>
+                  <option value="3">Price + Shipping: highest first</option>
+                  <option value="4">Price + Shipping: lowest first</option>
+                </select>
+              </div>
+
+              <div class="form-group col-12  has-error" >
+
+                  <button type="button"  class="btn btn-primary float-right  offset-1"   (click)="clearForm()">Clear</button>
+                  <button type="submit" class="btn btn-primary float-right  "  >Search</button>
+                  <!-- [disabled]="!form.valid" -->
+
+              </div>
+
+            </form>
+
+    </div>
+  </div>
+</div>
+<app-pagination [data] = "data" [keyword]="keyword" [submitted]="submitted"></app-pagination>
+

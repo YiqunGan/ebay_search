@@ -1,0 +1,25 @@
+
+<mat-card class="container">
+  <div class = "row">
+
+
+    <div class = "col-sm-2">
+      <img class='image' [src] =  'item.imageURL'>
+    </div>
+    <div class = "col-xs-12 col-sm-10">
+      <mat-card-title class="title"><a [href]='item.productLink' >{{item.title}}</a></mat-card-title>
+      <mat-card-content>
+        <p><span style="font-weight:bold;">Price: </span>${{item.price}}</p>
+        <table class='row'>
+
+            <span class='col-sm-3' style="font-style:italic"><p>{{item.location}}</p></span>
+
+            <span class='col-sm-9' style="float:left"><button type='button' class="btn btn-primary active" (click)="toggle()">{{buttonName}}</button></span>
+
+
+        </table>
+        <ng-container *ngIf="show"><app-tab [item]='item'></app-tab></ng-container>
+      </mat-card-content>
+    </div>
+  </div>
+</mat-card>

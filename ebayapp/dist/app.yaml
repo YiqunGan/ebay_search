@@ -1,0 +1,7 @@
+runtime: python37
+handlers:
+- url: /
+  static_files: ebayapp/index.html
+  upload: ebayapp/index.html
+- url: /
+  static_dir: ebayapp

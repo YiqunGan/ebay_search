@@ -1,0 +1,21 @@
+.title{
+  font-size: 1.1rem;
+  color:#4477b1;
+  padding:10px 0;
+}
+.container{
+  padding: 15px 20px 5px 25px;
+  background-color: #dddddd;
+  margin: 10px auto;
+}
+.btn.btn-primary{
+  width:120px;
+
+}
+
+.image{
+  max-width:80%;
+}
+
+
+

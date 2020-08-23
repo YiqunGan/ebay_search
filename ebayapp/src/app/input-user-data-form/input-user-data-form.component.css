@@ -1,0 +1,31 @@
+.form-group {
+  margin: 20px auto;
+}
+
+.ng-valid[required], .ng-valid.required {
+  border-left: 5px solid #42A948;
+}
+
+input.ng-invalid.ng-touched {
+  border-left: 5px solid #a94442;
+}
+
+.has-error{
+  color:red;
+
+}
+
+.btn.btn-primary{
+  width:100px;
+}
+
+@media (max-width:575px){
+  .btn.btn-primary{
+    width:80px;
+  }
+}
+
+
+
+
+
